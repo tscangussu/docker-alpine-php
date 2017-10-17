@@ -1,0 +1,11 @@
+:2015
+
+gzip
+
+log stdout
+
+errors stdout
+
+fastcgi / php-fpm:9000 php {
+  root /srv/www/html
+}

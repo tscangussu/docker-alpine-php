@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+  caddy:
+    image: tscangussu/caddy:0.10.10-alpine
+    ports:
+      - "2015:2015"
+    networks:
+      - front
+    volumes:
+      - type: volume
+        source: data
+        target: /srv/www/html
+        volume:
+          nocopy: true
+      - type: bind
+        source: ./Caddyfile
+        target: /srv/www/html/Caddyfile
+
+  php-fpm:
+    image: tscangussu/php:7.1.9-fpm-alpine
+    networks:
+      - front
+    volumes:
+      - type: volume
+        source: data
+        target: /srv/www/html
+        volume:
+          nocopy: true
+volumes:
+  data:
+networks:
+  front:
