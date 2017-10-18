@@ -26,6 +26,9 @@ services:
         target: /srv/www/html
         volume:
           nocopy: true
+      - type: bind
+        source: ./index.php
+        target: /srv/www/html/index.php
 volumes:
   data:
 networks:
