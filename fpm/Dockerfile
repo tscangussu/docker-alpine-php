@@ -21,6 +21,11 @@ COPY zz-docker.conf /etc/php7/php-fpm.d/
 # See FHS 3.0 spec: http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s17.html
 WORKDIR /srv/www/html
 
+# Run docker-php-entrypoint after tini has been started as PID 1.
+COPY docker-php-entrypoint /usr/local/bin
+
+ENTRYPOINT ["/tini", "--", "docker-php-entrypoint"]
+
 EXPOSE 9000
 
 CMD ["php-fpm7"]
