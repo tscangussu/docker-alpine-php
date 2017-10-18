@@ -24,7 +24,7 @@ WORKDIR /srv/www/html
 # Run docker-php-entrypoint after tini has been started as PID 1.
 COPY docker-php-entrypoint /usr/local/bin
 
-ENTRYPOINT ["/tini", "--", "docker-php-entrypoint"]
+ENTRYPOINT ["tini", "--", "docker-php-entrypoint"]
 
 EXPOSE 9000
 
