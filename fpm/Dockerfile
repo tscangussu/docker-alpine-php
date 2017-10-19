@@ -19,7 +19,9 @@ COPY zz-docker.conf /etc/php7/php-fpm.d/
 
 # /srv contains site-specific data which is served by this system.
 # See FHS 3.0 spec: http://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s17.html
-WORKDIR /srv/www/html
+ENV WWW-ROOT /srv/www/html
+
+WORKDIR ${WWW-ROOT}
 
 # Run docker-php-entrypoint after tini has been started as PID 1.
 COPY docker-php-entrypoint /usr/local/bin
