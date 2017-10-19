@@ -2,7 +2,8 @@ FROM tscangussu/tini:0.16.1-alpine
 
 LABEL Maintainer="Thiago Cangussu <thiago.cangussu@gmail.com>" \
       Description="PHP-FPM based on Alpine Linux." \
-      Version="7.1.9"
+      Version="7.1.9" \
+      Revision="1"
 
 
 # Install packages based on official php-fpm image.
